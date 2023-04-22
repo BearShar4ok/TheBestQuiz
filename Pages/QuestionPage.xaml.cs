@@ -10,24 +10,25 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TheBestQuiz.Models;
 
-namespace TheBestQuiz
+namespace TheBestQuiz.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для QuizWindow.xaml
+    /// Логика взаимодействия для QuestionPage.xaml
     /// </summary>
-    public partial class QuestionWindow : Window
+    public partial class QuestionPage : Page
     {
-        private ListWindow listWindow;
+        private ListPage listWindow;
         public ApplicationDbContext db;
         public int qCounter = 1;
         public List<bool> answers = new List<bool>();
-        public List<Quiz> questions;
+        public List<Models.Quiz> questions;
 
-        public QuestionWindow(ListWindow listWindow, int id, ApplicationDbContext db)
-        {           
+        public QuestionPage(ListPage listWindow, int id, ApplicationDbContext db)
+        {
             InitializeComponent();
             this.db = db;
 
@@ -50,8 +51,8 @@ namespace TheBestQuiz
             {
                 // window closes
                 answers.Add(true);
-                this.Close();
-            }          
+                //this.Close();
+            }
         }
 
         private void No_Button_Click(object sender, RoutedEventArgs e)
@@ -67,7 +68,7 @@ namespace TheBestQuiz
             {
                 // window closes
                 answers.Add(false);
-                this.Close();
+                //this.Close();
             }
         }
 
