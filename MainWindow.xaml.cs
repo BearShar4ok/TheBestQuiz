@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TheBestQuiz.Additions;
 
 namespace TheBestQuiz
 {
@@ -25,11 +26,13 @@ namespace TheBestQuiz
         {
             InitializeComponent();
 
+
             db = new ApplicationDbContext();
             db.Database.EnsureCreated();
 
             ListWindow listWindow = new ListWindow(this, db);
             listWindow.Show();
+
         }
     }
 }
