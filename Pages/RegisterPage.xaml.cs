@@ -58,6 +58,7 @@ namespace TheBestQuiz
                 PassBox.Background = Brushes.Transparent;
                 RepeatPassBox.ToolTip = "";
                 RepeatPassBox.Background = Brushes.Transparent;
+
                 RegisterUser(login, pass);
 
                 Addition.NavigateService?.Navigate(new MainPage(db));
@@ -67,8 +68,8 @@ namespace TheBestQuiz
         private void RegisterUser(string login, string password)
         {
             User user = new User();
-            user.Login = login;
-            user.Password = password;
+            user.Login = Shifr.ShifrMy(login); 
+            user.Password = Shifr.SHA(password);
 
             db.Users.Add(user);
 

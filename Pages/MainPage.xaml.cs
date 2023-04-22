@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TheBestQuiz.Additions;
+using TheBestQuiz.Pages;
 
 namespace TheBestQuiz
 {
@@ -31,6 +32,19 @@ namespace TheBestQuiz
         private void SignUpButton_Click(object sender, RoutedEventArgs e)
         {
             Addition.NavigateService?.Navigate(new RegisterPage(db));
+        }
+
+        private void SignInButton_Click(object sender, RoutedEventArgs e)
+        {
+            string login = LoginTextBox.Text;
+            string pass = Shifr.SHA(PasswordBox.Password);
+
+            var user = db.Users.FirstOrDefault(x => Shifr.DeShifrMy(x.Login) == login && x.Password == pass);
+
+            if (user != null)
+            {
+                Addition.NavigateService?.Navigate(new ListPage(db));
+            }
         }
     }
 }

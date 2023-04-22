@@ -21,10 +21,9 @@ namespace TheBestQuiz.Pages
     /// </summary>
     public partial class ListPage : Page
     {
-        private MainWindow mainWindow;
         public ApplicationDbContext db;
 
-        public ListPage(MainWindow mainWindow, ApplicationDbContext db)
+        public ListPage(ApplicationDbContext db)
         {
             InitializeComponent();
             this.db = db;
@@ -34,19 +33,18 @@ namespace TheBestQuiz.Pages
             Theme_Button3.Content = db.Theme.First(x => x.Id == 3).Name;
             Theme_Button4.Content = db.Theme.First(x => x.Id == 4).Name;
             Theme_Button5.Content = db.Theme.First(x => x.Id == 5).Name;
-            this.mainWindow = mainWindow;
         }
 
         private void Theme_Button1_Click(object sender, RoutedEventArgs e)
         {
             QuestionPage questionWindow = new QuestionPage(this, 1, db);
-            //questionWindow.Show();
+            Addition.NavigateService?.Navigate(questionWindow);
         }
 
         private void Theme_Button2_Click(object sender, RoutedEventArgs e)
         {
             QuestionPage questionWindow = new QuestionPage(this, 2, db);
-            //questionWindow.Show();
+            Addition.NavigateService?.Navigate(questionWindow);
         }
 
         private void Info_Button_Click(object sender, RoutedEventArgs e)

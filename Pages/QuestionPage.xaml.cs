@@ -52,7 +52,7 @@ namespace TheBestQuiz.Pages
             {
                 // window closes
                 answers.Add(true);
-                //this.Close();
+                Addition.NavigateService?.GoBack();
             }
         }
 
@@ -69,7 +69,7 @@ namespace TheBestQuiz.Pages
             {
                 // window closes
                 answers.Add(false);
-                //this.Close();
+                Addition.NavigateService?.GoBack();
             }
         }
 
