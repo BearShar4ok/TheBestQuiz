@@ -20,9 +20,16 @@ namespace TheBestQuiz
     /// </summary>
     public partial class MainWindow : Window
     {
+        private ApplicationDbContext? db;
         public MainWindow()
         {
             InitializeComponent();
+
+            db = new ApplicationDbContext();
+            db.Database.EnsureCreated();
+
+            ListWindow listWindow = new ListWindow(this, db);
+            listWindow.Show();
         }
     }
 }
