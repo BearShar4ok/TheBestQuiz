@@ -59,6 +59,8 @@ namespace TheBestQuiz
                 RepeatPassBox.ToolTip = "";
                 RepeatPassBox.Background = Brushes.Transparent;
                 RegisterUser(login, pass);
+
+                Addition.NavigateService?.Navigate(new MainPage(db));
             }
         }
 
@@ -69,6 +71,8 @@ namespace TheBestQuiz
             user.Password = password;
 
             db.Users.Add(user);
+
+            db.SaveChanges();
         }
     }
 }
