@@ -30,7 +30,6 @@ namespace TheBestQuiz
             db.Database.EnsureCreated();
 
             Addition.NavigateService?.Navigate(new MainPage(db));
-            listWindow.Show();
 
         }
     }
