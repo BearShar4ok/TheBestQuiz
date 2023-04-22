@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TheBestQuiz.Additions;
 
 namespace TheBestQuiz
 {
@@ -23,6 +24,10 @@ namespace TheBestQuiz
         public MainWindow()
         {
             InitializeComponent();
+            //MessageBox.Show(Shifr.GenerateSaltedHash("Hello") + "\n"
+            //    + Shifr.MD("Hello") + "\n"
+            //    + Shifr.SHA("Hello"));
+           Shifr.ShifrMy("Hello world!");
         }
     }
 }
