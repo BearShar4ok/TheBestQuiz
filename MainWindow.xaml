@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TheBestQuiz"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="600" Width="450">
     <Grid>
-
+        <Frame x:Name="frame" NavigationUIVisibility="Hidden" Height="600" Width="450">
+            <Frame.Style>
+                <Style TargetType="Frame">
+                    <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                </Style>
+            </Frame.Style>
+        </Frame>
     </Grid>
 </Window>

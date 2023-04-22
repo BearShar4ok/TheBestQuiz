@@ -10,19 +10,21 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TheBestQuiz.Additions;
 
-namespace TheBestQuiz
+namespace TheBestQuiz.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для ListWindow.xaml
+    /// Логика взаимодействия для ListPage.xaml
     /// </summary>
-    public partial class ListWindow : Window
+    public partial class ListPage : Page
     {
         private MainWindow mainWindow;
         public ApplicationDbContext db;
 
-        public ListWindow(MainWindow mainWindow, ApplicationDbContext db)
+        public ListPage(MainWindow mainWindow, ApplicationDbContext db)
         {
             InitializeComponent();
             this.db = db;
@@ -37,14 +39,14 @@ namespace TheBestQuiz
 
         private void Theme_Button1_Click(object sender, RoutedEventArgs e)
         {
-            QuestionWindow questionWindow = new QuestionWindow(this, 1, db);
-            questionWindow.Show();
+            QuestionPage questionWindow = new QuestionPage(this, 1, db);
+            //questionWindow.Show();
         }
 
         private void Theme_Button2_Click(object sender, RoutedEventArgs e)
         {
-            QuestionWindow questionWindow = new QuestionWindow(this, 2, db);
-            questionWindow.Show();
+            QuestionPage questionWindow = new QuestionPage(this, 2, db);
+            //questionWindow.Show();
         }
 
         private void Info_Button_Click(object sender, RoutedEventArgs e)

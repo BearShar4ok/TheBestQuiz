@@ -8,17 +8,12 @@ using System.Threading.Tasks;
 
 namespace TheBestQuiz.Models
 {
-    public class Quiz
+    public class User
     {
         [Key]
         public int Id { get; set; }
-        public string Question { get; set; }
-        public bool IsCorrect { get; set; }
 
-        [Display(Name = "Theme Id")]
-        public int ThemeId { get; set; }
-
-        [ForeignKey("ThemeId")]
-        public virtual Theme Theme { get; set; }
+        public string Login { get; set; }
+        public string Password { get; set; }
     }
 }

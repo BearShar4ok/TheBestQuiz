@@ -17,20 +17,20 @@ using TheBestQuiz.Additions;
 namespace TheBestQuiz
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Логика взаимодействия для MainPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainPage : Page
     {
-        private ApplicationDbContext? db;
-        public MainWindow()
+        ApplicationDbContext db;
+        public MainPage(ApplicationDbContext db)
         {
             InitializeComponent();
+            this.db = db;
+        }
 
-            db = new ApplicationDbContext();
-            db.Database.EnsureCreated();
-
-            Addition.NavigateService?.Navigate(new MainPage(db));
-
+        private void SignUpButton_Click(object sender, RoutedEventArgs e)
+        {
+            Addition.NavigateService?.Navigate(new RegisterPage(db));
         }
     }
 }
